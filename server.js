@@ -62,6 +62,9 @@ app.use("/api/recommend-dishes", recommendDishesRouter);
 app.use("/api/recommend-dishes-byUser", recommendDishesByUserRouter);
 
 // Phục vụ các tệp tĩnh từ thư mục 'frontend/dist'
+const __dirname = path.dirname(new URL(import.meta.url).pathname);
+
+// Phục vụ các tệp tĩnh từ thư mục 'frontend/dist'
 app.use(express.static(path.join(__dirname, "../frontend/dist")));
 
 // Đảm bảo rằng mọi yêu cầu không phải là API đều trả về index.html (cho Vue.js xử lý routing)
