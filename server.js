@@ -35,6 +35,8 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
+app.use(cors({ origin: "https://nhahangchaysen-fe.onrender.com/" }));
+
 // ⚠️ Cho phép truy cập ảnh public
 app.use("/uploads", express.static("uploads"));
 
