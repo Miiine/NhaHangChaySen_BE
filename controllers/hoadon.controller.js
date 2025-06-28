@@ -649,9 +649,7 @@ export const vnpayReturn = async (req, res) => {
                 }
 
                 // return res.redirect("http://localhost:5173/LichSuDatBan");
-                return res.redirect(
-                    "https://nhahangchaysen-fe.onrender.com/LichSuDatBan"
-                );
+                return res.redirect("https://nhahangchaysen-fe.onrender.com/");
             } else {
                 return res.redirect("/payment-failed");
             }
