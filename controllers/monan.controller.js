@@ -140,7 +140,8 @@ export const addMonAn = async (req, res) => {
         const maMonAn = result.insertId;
 
         // Thêm hình ảnh nếu có
-        const baseUrl = "http://localhost:3000";
+        // const baseUrl = "http://localhost:3000";
+        const baseUrl = "https://nhahangchaysen-be.onrender.com";
         if (req.files && req.files.length) {
             const sqlInsertImage =
                 "INSERT INTO HINHANH_MONAN (maMonAn, URL, anhChinh) VALUES (?, ?, ?)";

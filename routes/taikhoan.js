@@ -35,7 +35,8 @@ router.post("/khachhang", createKhachHangDinIn);
 router.post("/upload-avatar", upload.single("avatar"), (req, res) => {
     if (!req.file) return res.status(400).json({ message: "Không có file" });
 
-    const fileUrl = `http://localhost:3000/uploads/avatars/${req.file.filename}`;
+    // const fileUrl = `http://localhost:3000/uploads/avatars/${req.file.filename}`;
+    const fileUrl = `https://nhahangchaysen-be.onrender.com/uploads/avatars/${req.file.filename}`;
     res.json({ fileUrl });
 });
 

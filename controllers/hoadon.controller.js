@@ -421,7 +421,10 @@ const vnp_TmnCode = "N8H03WDC";
 const vnp_HashSecret = "N4AIZ1NR9YK2L5785OX6LQRJLG0PLCU0";
 const vnp_Url = "https://sandbox.vnpayment.vn/paymentv2/vpcpay.html";
 // const vnp_ReturnUrl = "http://localhost:5173/checkout-return";
-const vnp_ReturnUrl = "http://localhost:3000/api/hoadon/checkout-return";
+
+// const vnp_ReturnUrl = "http://localhost:3000/api/hoadon/checkout-return";
+const vnp_ReturnUrl =
+    "https://nhahangchaysen-be.onrender.com/api/hoadon/checkout-return";
 
 // Tạo URL thanh toán
 export const createVNPayPayment = async (req, res) => {
@@ -645,7 +648,10 @@ export const vnpayReturn = async (req, res) => {
                     });
                 }
 
-                return res.redirect("http://localhost:5173/LichSuDatBan");
+                // return res.redirect("http://localhost:5173/LichSuDatBan");
+                return res.redirect(
+                    "https://nhahangchaysen-fe.onrender.com/LichSuDatBan"
+                );
             } else {
                 return res.redirect("/payment-failed");
             }

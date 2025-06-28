@@ -51,7 +51,8 @@ export const addKhuyenMai = async (req, res) => {
 
         // Kiểm tra xem có file ảnh không
         if (req.file) {
-            const baseUrl = "http://localhost:3000"; // Đường dẫn base của server
+            // const baseUrl = "http://localhost:3000"; // Đường dẫn base của server
+            const baseUrl = "https://nhahangchaysen-be.onrender.com"; // Đường dẫn base của server
             hinhAnhUrl = `${baseUrl}/uploads/offers/${req.file.filename}`;
         }
 
@@ -96,7 +97,8 @@ export const updateKhuyenMai = async (req, res) => {
     let hinhAnhUrl = "";
     if (req.file) {
         // Nếu có ảnh mới, lấy ảnh mới từ req.file
-        const baseUrl = "http://localhost:3000";
+        // const baseUrl = "http://localhost:3000";
+        const baseUrl = "https://nhahangchaysen-be.onrender.com";
         hinhAnhUrl = `${baseUrl}/uploads/offers/${req.file.filename}`;
     } else {
         // Nếu không có ảnh mới, giữ lại ảnh cũ từ cơ sở dữ liệu

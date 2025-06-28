@@ -36,7 +36,8 @@ export const register = async (req, res) => {
         );
 
         // Gửi email kích hoạt
-        const activationLink = `http://localhost:5173/activate-account?token=${activationToken}`;
+        // const activationLink = `http://localhost:5173/activate-account?token=${activationToken}`;
+        const activationLink = `https://nhahangchaysen-fe.onrender.com/activate-account?token=${activationToken}`;
         const mailOptions = {
             from: process.env.EMAIL_USER,
             to: email,
@@ -387,7 +388,8 @@ export const requestPasswordReset = async (req, res) => {
         );
 
         // Gửi email chứa link reset
-        const resetLink = `http://localhost:5173/reset-password?token=${resetToken}`;
+        // const resetLink = `http://localhost:5173/reset-password?token=${resetToken}`;
+        const resetLink = `https://nhahangchaysen-fe.onrender.com/reset-password?token=${resetToken}`;
         const mailOptions = {
             from: process.env.EMAIL_USER,
             to: email,
