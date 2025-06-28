@@ -1,4 +1,5 @@
 import express from "express";
+import path from "path";
 import cors from "cors";
 import dotenv from "dotenv";
 import authRouter from "./routes/auth.js";
@@ -59,6 +60,14 @@ app.use("/api/phieunhapkho", phieuNhapKhoRouter);
 app.use("/api/thongke", thongKeRouter);
 app.use("/api/recommend-dishes", recommendDishesRouter);
 app.use("/api/recommend-dishes-byUser", recommendDishesByUserRouter);
+
+// Phục vụ các tệp tĩnh từ thư mục 'frontend/dist'
+app.use(express.static(path.join(__dirname, "../frontend/dist")));
+
+// Đảm bảo rằng mọi yêu cầu không phải là API đều trả về index.html (cho Vue.js xử lý routing)
+app.get("*", (req, res) => {
+    res.sendFile(path.join(__dirname, "../frontend/dist", "index.html"));
+});
 
 app.get("/", (req, res) => {
     res.send("Backend API is running!");
