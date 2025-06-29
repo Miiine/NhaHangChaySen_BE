@@ -62,9 +62,9 @@ app.use("/api/recommend-dishes", recommendDishesRouter);
 app.use("/api/recommend-dishes-byUser", recommendDishesByUserRouter);
 
 // Chuyển hướng tất cả các yêu cầu không phải API đến URL của frontend
-app.get("*", (req, res) => {
-    res.redirect("https://nhahangchaysen-fe.onrender.com");
-});
+// app.get("*", (req, res) => {
+//     res.redirect("https://nhahangchaysen-fe.onrender.com");
+// });
 
 app.get("/", (req, res) => {
     res.send("Backend API is running!");
