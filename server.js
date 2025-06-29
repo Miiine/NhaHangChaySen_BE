@@ -74,15 +74,6 @@ app.get("/", (req, res) => {
     res.send("Backend API is running!");
 });
 
-// Cấu hình để trả về index.html cho tất cả các request không phải API
-const __dirname = new URL(".", import.meta.url).pathname; // Tạo biến __dirname cho ES module
-app.use(express.static(path.join(__dirname, "dist"))); // Đảm bảo đường dẫn đúng nơi bạn build frontend
-
-// Trả về index.html cho mọi yêu cầu không phải API (frontend)
-app.get("*", (req, res) => {
-    res.sendFile(path.join(__dirname, "dist", "index.html"));
-});
-
 // Lịch chạy cron: mỗi ngày vào lúc 8:00 sáng
 // chạy vào phút 0, giờ 8, hàng ngày, hàng tháng, hàng tuần
 
