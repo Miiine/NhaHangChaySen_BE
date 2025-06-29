@@ -75,6 +75,7 @@ app.get("/", (req, res) => {
 });
 
 // Cấu hình để trả về index.html cho tất cả các request không phải API
+const __dirname = new URL(".", import.meta.url).pathname; // Tạo biến __dirname cho ES module
 app.use(express.static(path.join(__dirname, "dist"))); // Đảm bảo đường dẫn đúng nơi bạn build frontend
 
 // Trả về index.html cho mọi yêu cầu không phải API (frontend)
