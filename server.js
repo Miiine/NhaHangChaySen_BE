@@ -33,6 +33,15 @@ dotenv.config();
 const app = express();
 
 app.use(cors());
+
+// Cấu hình CORS
+app.use(
+    cors({
+        origin: "https://nhahangchaysen-fe.onrender.com",
+        methods: ["GET", "POST", "PUT", "PATCH", "DELETE"],
+    })
+);
+
 app.use(express.json());
 
 // ⚠️ Cho phép truy cập ảnh public
@@ -60,11 +69,6 @@ app.use("/api/phieunhapkho", phieuNhapKhoRouter);
 app.use("/api/thongke", thongKeRouter);
 app.use("/api/recommend-dishes", recommendDishesRouter);
 app.use("/api/recommend-dishes-byUser", recommendDishesByUserRouter);
-
-// Chuyển hướng tất cả các yêu cầu không phải API đến URL của frontend
-// app.get("*", (req, res) => {
-//     res.redirect("https://nhahangchaysen-fe.onrender.com");
-// });
 
 app.get("/", (req, res) => {
     res.send("Backend API is running!");
